@@ -1,0 +1,221 @@
+/*
+SQLyog Ultimate v8.82 
+MySQL - 5.7.20-log : Database - complaintmanagementsystem
+*********************************************************************
+*/
+
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`complaintmanagementsystem` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `complaintmanagementsystem`;
+
+/*Table structure for table `adminlogin` */
+
+DROP TABLE IF EXISTS `adminlogin`;
+
+CREATE TABLE `adminlogin` (
+  `Username` varchar(15) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `SecurityQuestion` varchar(150) DEFAULT NULL,
+  `SecurityAnswer` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `adminlogin` */
+
+insert  into `adminlogin`(`Username`,`Password`,`SecurityQuestion`,`SecurityAnswer`) values ('rickiii','rickiii','What was your Salary?','1 Paise');
+
+/*Table structure for table `comments` */
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE `comments` (
+  `SNo` int(11) NOT NULL AUTO_INCREMENT,
+  `Comment` varchar(300) NOT NULL,
+  PRIMARY KEY (`SNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+/*Data for the table `comments` */
+
+insert  into `comments`(`SNo`,`Comment`) values (2,'i got in trouble.\nhelp!!'),(3,'hey I m rickiii. I need Assistance.');
+
+/*Table structure for table `complaint` */
+
+DROP TABLE IF EXISTS `complaint`;
+
+CREATE TABLE `complaint` (
+  `SNo` int(11) NOT NULL AUTO_INCREMENT,
+  `Complaint` varchar(350) NOT NULL,
+  `Customer_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`Customer_id`),
+  KEY `SNo` (`SNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `complaint` */
+
+/*Table structure for table `complaintaction` */
+
+DROP TABLE IF EXISTS `complaintaction`;
+
+CREATE TABLE `complaintaction` (
+  `SNo` int(11) NOT NULL AUTO_INCREMENT,
+  `complaint_id` varchar(50) NOT NULL,
+  `Cost` decimal(18,0) DEFAULT NULL,
+  `ActionToken` decimal(18,0) DEFAULT NULL,
+  `eid` varchar(11) DEFAULT NULL,
+  `status` varchar(11) DEFAULT NULL,
+  `DateOfService` date DEFAULT NULL,
+  PRIMARY KEY (`complaint_id`),
+  KEY `SNo` (`SNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `complaintaction` */
+
+insert  into `complaintaction`(`SNo`,`complaint_id`,`Cost`,`ActionToken`,`eid`,`status`,`DateOfService`) values (1,'CO-aaa00000','1000',NULL,'En-aaa00001','Pending','1991-06-04');
+
+/*Table structure for table `complaintregistration` */
+
+DROP TABLE IF EXISTS `complaintregistration`;
+
+CREATE TABLE `complaintregistration` (
+  `SNo` int(11) NOT NULL AUTO_INCREMENT,
+  `complaint_id` varchar(50) NOT NULL,
+  `DATE` varchar(50) NOT NULL,
+  `CID` varchar(50) NOT NULL,
+  `ProblemTitle` varchar(100) DEFAULT 'Empty',
+  `Description` varchar(50) NOT NULL,
+  `Status` varchar(50) DEFAULT NULL,
+  `TypeOfService` varchar(50) NOT NULL,
+  `ServiceCenter` varchar(50) DEFAULT NULL,
+  `Place` varchar(50) NOT NULL,
+  `C_Condition` varchar(50) NOT NULL,
+  PRIMARY KEY (`complaint_id`),
+  KEY `SNo` (`SNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `complaintregistration` */
+
+insert  into `complaintregistration`(`SNo`,`complaint_id`,`DATE`,`CID`,`ProblemTitle`,`Description`,`Status`,`TypeOfService`,`ServiceCenter`,`Place`,`C_Condition`) values (4,'CO-aaa00000','4/9/2022','Cid-00001aaa','heart failure','need an arc reactor.','Pending','medical','lko','lucknow','Too Bad');
+
+/*Table structure for table `customer` */
+
+DROP TABLE IF EXISTS `customer`;
+
+CREATE TABLE `customer` (
+  `CID` varchar(50) NOT NULL,
+  `Cname` varchar(50) NOT NULL,
+  `Address` varchar(100) NOT NULL,
+  `Contact` decimal(10,0) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  PRIMARY KEY (`CID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `customer` */
+
+insert  into `customer`(`CID`,`Cname`,`Address`,`Contact`,`Email`) values ('Cid-00000aaa','Ramsha Ishaq','Dubagga,lko','9793769936','ramshaishaq02@gmail.com'),('Cid-00001aaa','Ramsha Ishaq','Dubagga,lko','9793769936','ramshaishaq02@gmail.com'),('Cid-00002aaa','Ramsha Ishaq','Dubagga','9793769936','ramshaishaq02@gmail.com');
+
+/*Table structure for table `customerlogin` */
+
+DROP TABLE IF EXISTS `customerlogin`;
+
+CREATE TABLE `customerlogin` (
+  `CID` varchar(50) NOT NULL,
+  `user` varchar(20) DEFAULT NULL,
+  `pass` varchar(30) DEFAULT NULL,
+  UNIQUE KEY `CID` (`CID`),
+  CONSTRAINT `customerlogin_ibfk_1` FOREIGN KEY (`CID`) REFERENCES `customer` (`CID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `customerlogin` */
+
+insert  into `customerlogin`(`CID`,`user`,`pass`) values ('Cid-00001aaa','rickiii','rickiii'),('Cid-00002aaa','rickiii1','rickiii');
+
+/*Table structure for table `employee` */
+
+DROP TABLE IF EXISTS `employee`;
+
+CREATE TABLE `employee` (
+  `EID` varchar(50) NOT NULL,
+  `Ename` varchar(50) NOT NULL,
+  `Address` varchar(100) NOT NULL,
+  `DOB` date NOT NULL,
+  `ContactNo` decimal(10,0) NOT NULL,
+  `Designation` varchar(50) DEFAULT NULL,
+  `Email` varchar(50) NOT NULL,
+  `status` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`EID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `employee` */
+
+insert  into `employee`(`EID`,`Ename`,`Address`,`DOB`,`ContactNo`,`Designation`,`Email`,`status`) values ('En-aaa00000','ramsha ishaq','dubagga,lko','1998-10-17','9793769936','Senior Engineer','ramshaishaq02@gmail.com','Terminated'),('En-aaa00001','Ramsha Ishaq','Dubagga','1998-10-17','9793769936','Senior Engineer','ramshaishaq02@Gmail.com','Working'),('En-aaa00002','anima','mns dmdv','1996-12-04','7686878','dnvlknvl','sdkjnvkjdnvkdfv','Working');
+
+/*Table structure for table `employeelogin` */
+
+DROP TABLE IF EXISTS `employeelogin`;
+
+CREATE TABLE `employeelogin` (
+  `Eid` varchar(25) NOT NULL,
+  `Username` varchar(25) NOT NULL,
+  `Password` varchar(25) NOT NULL,
+  PRIMARY KEY (`Eid`),
+  UNIQUE KEY `Username` (`Username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `employeelogin` */
+
+insert  into `employeelogin`(`Eid`,`Username`,`Password`) values ('En-aaa00000','rickiii1','rickiii'),('En-aaa00001','rickiii','rickiii');
+
+/*Table structure for table `feedback` */
+
+DROP TABLE IF EXISTS `feedback`;
+
+CREATE TABLE `feedback` (
+  `SNo` int(11) NOT NULL AUTO_INCREMENT,
+  `Feedback` varchar(300) NOT NULL,
+  `Sender` varchar(100) NOT NULL,
+  KEY `SNo` (`SNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `feedback` */
+
+/*Table structure for table `reports` */
+
+DROP TABLE IF EXISTS `reports`;
+
+CREATE TABLE `reports` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NoOfCustomer` decimal(18,0) NOT NULL,
+  `NoOfEngineer` decimal(18,0) NOT NULL,
+  `NoOfStaff` decimal(18,0) NOT NULL,
+  `PendingComplaint` decimal(18,0) NOT NULL,
+  `CompletedComplaint` decimal(18,0) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `reports` */
+
+/*Table structure for table `serviceplace` */
+
+DROP TABLE IF EXISTS `serviceplace`;
+
+CREATE TABLE `serviceplace` (
+  `SNO` decimal(18,0) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Place` varchar(50) NOT NULL,
+  PRIMARY KEY (`SNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `serviceplace` */
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

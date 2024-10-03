@@ -1,0 +1,106 @@
+******************************
+
+Sat Sep 22 14:16:20 IST 2018
+java.sql.SQLException: Illegal operation on empty result set.
+******************************
+
+Sat Sep 22 14:25:16 IST 2018
+java.sql.SQLException: Illegal operation on empty result set.
+******************************
+
+Sat Sep 22 14:27:28 IST 2018
+java.sql.SQLException: Illegal operation on empty result set.
+******************************
+
+Sat Sep 22 14:33:00 IST 2018
+java.sql.SQLException: Illegal operation on empty result set.
+******************************
+
+Mon Sep 24 14:07:14 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:08:55 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:10:33 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:24:06 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:24:39 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:25:49 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Mon Sep 24 14:26:53 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NullPointerException
+******************************
+
+Wed Sep 26 19:22:27 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NumberFormatException: empty String
+******************************
+
+Sun Sep 30 21:22:16 IST 2018
+Something unexpected Occured.
+ Contact Admin for Support.
+Error Description - java.lang.NumberFormatException: empty String
+******************************
+
+Mon Oct 01 23:43:26 IST 2018
+Cannot Register Complaint.
+Error Description - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,status) value('Heart Failure','CO-aaa00000','Cid-00002aaa','1/9/2018',' at line 1
+******************************
+
+Mon Oct 01 23:49:42 IST 2018
+Cannot Register Complaint.
+Error Description - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition,status) value('Heart Failure','CO-aaa00000','Cid-00002aaa','1/9/2018',' at line 1
+******************************
+
+Mon Oct 01 23:56:47 IST 2018
+Cannot Register Complaint.
+Error Description - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'condition, status) 
+value('Heart Failure','CO-aaa00000','Cid-00002aaa','1/9/2018' at line 1
+******************************
+
+Thu Oct 04 16:07:32 IST 2018
+Cannot Register Complaint.
+Error Description - java.sql.SQLException: Field 'ServiceCenter' doesn't have a default value
+******************************
+
+Thu Oct 04 16:09:06 IST 2018
+Cannot Register Complaint.
+Error Description - java.sql.SQLException: Field 'DateOfService' doesn't have a default value
+******************************
+
+Thu Oct 04 16:09:59 IST 2018
+Cannot Register Complaint.
+Error Description - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'CO-aaa00000' for key 'PRIMARY'
+******************************
+
+Thu Oct 04 16:11:00 IST 2018
+Cannot Register Complaint.
+Error Description - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'CO-aaa00000' for key 'PRIMARY'
